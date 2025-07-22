@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Undetectable AI Assignments and Essays with 99% Human Scores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* uPass.ai Exact Style */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fff;
+        }
+
+        /* Header */
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #1a1a1a;
+        }
+
+        .login-btn {
+            background: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Main Tool */
+        .main-tool {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto 0;
+            max-width: 800px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Mode Selector */
+        .mode-selector {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .mode-tabs {
+            display: flex;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 4px;
+        }
+
+        .mode-tab {
+            padding: 12px 24px;
+            border: none;
+            background: transparent;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .mode-tab.active {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .mode-tab.recommended::after {
+            content: 'Recommended';
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff6b35;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        /* Usage Info */
+        .usage-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .usage-item {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .upgrade-btn {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .upgrade-btn:hover {
+            background: #e55a2b;
+        }
+
+        /* Input Area */
+        .input-container {
+            margin-bottom: 30px;
+        }
+
+        .input-wrapper {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        #inputText {
+            width: 100%;
+            border: none;
+            padding: 25px;
+            font-size: 1rem;
+            line-height: 1.6;
+            resize: vertical;
+            min-height: 200px;
+            font-family: inherit;
+            color: #333;
+            background: transparent;
+        }
+
+        #inputText:focus {
+            outline: none;
+        }
+
+        #inputText::placeholder {
+            color: #999;
+        }
+
+        .input-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background: rgba(248, 249, 250, 0.8);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .word-counter {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .sample-btn {
+            background: transparent;
+            border: 1px solid #ddd;
+            color: #666;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .sample-btn:hover {
+            background: #f8f9fa;
+            border-color: #bbb;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 180px;
+            justify-content: center;
+        }
+
+        .btn-detect {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-detect:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-humanize {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-humanize:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-humanize:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        /* Results Container */
+        .results-container {
+            margin-top: 40px;
+            display: none;
+        }
+
+        .result-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .result-header h4 {
+            font-size: 1.3rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .confidence-badge, .success-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .confidence-badge {
+            background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+            color: white;
+        }
+
+        .success-badge {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+        }
+
+        .result-content {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            line-height: 1.8;
+            font-size: 1rem;
+            min-height: 120px;
+            border: 1px solid #e9ecef;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* AI Highlighting */
+        .ai-highlight {
+            background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%) !important;
+            color: white !important;
+            padding: 3px 8px !important;
+            border-radius: 6px !important;
+            font-weight: 600 !important;
+            border: 1px solid #ff0000 !important;
+            box-shadow: 0 2px 8px rgba(255, 68, 68, 0.3) !important;
+            display: inline-block !important;
+            margin: 1px !important;
+            animation: aiPulse 2s ease-in-out !important;
+        }
+
+        @keyframes aiPulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 2px 8px rgba(255, 68, 68, 0.3);
+            }
+            50% { 
+                transform: scale(1.05);
+                box-shadow: 0 4px 15px rgba(255, 68, 68, 0.5);
+            }
+        }
+
+        .ai-highlight:hover {
+            background: linear-gradient(135deg, #ff2222 0%, #aa0000 100%) !important;
+            transform: scale(1.1) !important;
+            box-shadow: 0 4px 20px rgba(255, 68, 68, 0.6) !important;
+        }
+
+        /* Stats */
+        .detection-stats, .humanized-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-item-result {
+            text-align: center;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .stat-number-result {
+            display: block;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label-result {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Action Buttons in Results */
+        .result-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn-copy, .btn-download {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-copy:hover, .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats {
+                gap: 30px;
+            }
+            
+            .main-tool {
+                padding: 25px;
+                margin: 20px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .detection-stats, .humanized-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            z-index: 9999;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification-success {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+
+        .notification-error {
+            background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+        }
+
+        .notification-info {
+            background: linear-gradient(135deg, #17a2b8 0%, #6610f2 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">uPass AI</a>
+            <nav class="nav-menu">
+                <a href="#" class="nav-link">Pricing</a>
+                <a href="#" class="login-btn">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Get Undetectable AI Assignments and Essays with 99% Human Scores</h1>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">15M+</div>
+                    <div class="stat-label">users choose uPass AI</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3M+</div>
+                    <div class="stat-label">words humanized daily</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">ALL</div>
+                    <div class="stat-label">AI detectors bypassed</div>
+                </div>
+            </div>
+
+            <!-- Main Tool -->
+            <div class="main-tool">
+                <!-- Mode Selector -->
+                <div class="mode-selector">
+                    <div class="mode-tabs">
+                        <button class="mode-tab active" data-mode="basic">Basic</button>
+                        <button class="mode-tab" data-mode="advanced">Advanced</button>
+                        <button class="mode-tab recommended" data-mode="aggressive">Aggressive</button>
+                    </div>
+                </div>
+
+                <!-- Usage Info -->
+                <div class="usage-info">
+                    <span class="usage-item">Words available:</span>
+                    <span class="usage-item">AI detector: <strong id="detectorWords">0</strong> words</span>
+                    <span class="usage-item">AI humanizer: <strong id="humanizerWords">0</strong> words</span>
+                    <span class="usage-item">Plan: <strong id="currentPlan">Free</strong></span>
+                    <button class="upgrade-btn" id="upgradeBtn">Upgrade Plan</button>
+                </div>
+
+                <!-- Input Area -->
+                <div class="input-container">
+                    <div class="input-wrapper">
+                        <textarea 
+                            id="inputText" 
+                            placeholder="Type or paste more than 50 words below, or try our sample"
+                            rows="8"
+                        ></textarea>
+                        <div class="input-footer">
+                            <div class="word-counter">
+                                <span id="wordCounter">0 words</span>
+                            </div>
+                            <button class="sample-btn" id="sampleBtn">try our sample</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn btn-detect" id="detectBtn">
+                        <i class="fas fa-search"></i>
+                        Check for AI
+                    </button>
+                    <button class="btn btn-humanize" id="humanizeBtn" disabled>
+                        <i class="fas fa-magic"></i>
+                        Humanize
+                    </button>
+                </div>
+
+                <!-- Results Container -->
+                <div class="results-container" id="resultsContainer">
+                    <!-- AI Detection Results -->
+                    <div class="result-section" id="detectionResults" style="display: none;">
+                        <div class="result-header">
+                            <h4><i class="fas fa-search"></i> AI Detection Results</h4>
+                            <div class="confidence-badge" id="confidenceBadge">0% AI</div>
+                        </div>
+                        <div class="result-content" id="originalText">
+                            Your AI detection results will appear here...
+                        </div>
+                        <div class="detection-stats">
+                            <div class="stat-item-result">
+                                <span class="stat-number-result" id="aiWordsCount">0</span>
+                                <span class="stat-label-result">AI Words Found</span>
+                            </div>
+                            <div class="stat-item-result">
+                                <span class="stat-number-result" id="totalWords">0</span>
+                                <span class="stat-label-result">Total Words</span>
+                            </div>
+                            <div class="stat-item-result">
+                                <span class="stat-number-result" id="confidence">0%</span>
+                                <span class="stat-label-result">AI Confidence</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Humanized Results -->
+                    <div class="result-section" id="humanizedResults" style="display: none;">
+                        <div class="result-header">
+                            <h4><i class="fas fa-user"></i> Humanized Content</h4>
+                            <div class="success-badge">✅ Human-like</div>
+                        </div>
+                        <div class="result-content" id="humanizedText">
+                            Your humanized content will appear here...
+                        </div>
+                        <div class="humanized-stats">
+                            <div class="stat-item-result">
+                                <span class="stat-number-result" id="humanScore">0%</span>
+                                <span class="stat-label-result">Human Score</span>
+                            </div>
+                            <div class="stat-item-result">
+                                <span class="stat-number-result" id="replacements">0</span>
+                                <span class="stat-label-result">Improvements</span>
+                            </div>
+                            <div class="stat-item-result">
+                                <span class="stat-number-result" id="wordsRemaining">∞</span>
+                                <span class="stat-label-result">Words Left</span>
+                            </div>
+                        </div>
+                        <div class="result-actions">
+                            <button class="btn-copy" id="copyHumanized">
+                                <i class="fas fa-copy"></i>
+                                Copy Text
+                            </button>
+                            <button class="btn-download" id="downloadBtn">
+                                <i class="fas fa-download"></i>
+                                Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts will be loaded here -->
+    <script src="../js/structure-preserving-detector.js"></script>
+    <script src="../js/upass-homepage-app.js"></script>
+</body>
+</html>

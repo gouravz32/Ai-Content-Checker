@@ -1,0 +1,599 @@
+<div class="pricing-header">
+    <h2>Choose Your Plan</h2>
+    <p>Select the perfect plan for your AI text humanization needs</p>
+    <div class="pricing-toggle">
+        <span class="toggle-label">Monthly</span>
+        <label class="toggle-switch">
+            <input type="checkbox" id="billingToggle">
+            <span class="slider"></span>
+        </label>
+        <span class="toggle-label">Annual <span class="discount-badge">Save 20%</span></span>
+    </div>
+</div>
+
+<div class="plan-selector">
+    <div class="plan-card stagger-animation" data-plan="free" tabindex="0" role="button" aria-label="Select Free Plan">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-header">
+            <div class="plan-icon">
+                <i class="fas fa-gift"></i>
+            </div>
+            <div class="plan-title">Free Plan</div>
+            <div class="plan-price">
+                <span class="currency">$</span>
+                <span class="amount" data-monthly="0" data-annual="0">0</span>
+                <span class="period">per month</span>
+            </div>
+            <div class="plan-description">Perfect for trying out our AI detection and humanization</div>
+        </div>
+        
+        <ul class="plan-features">
+            <li><i class="fas fa-check"></i> 50 words per day</li>
+            <li><i class="fas fa-check"></i> Basic AI detection</li>
+            <li><i class="fas fa-check"></i> Standard humanization</li>
+            <li><i class="fas fa-check"></i> Email support</li>
+            <li><i class="fas fa-check"></i> Basic analytics</li>
+        </ul>
+        
+        <div class="plan-limitations">
+            <h4>Limitations:</h4>
+            <ul>
+                <li><i class="fas fa-times"></i> No bulk processing</li>
+                <li><i class="fas fa-times"></i> No API access</li>
+                <li><i class="fas fa-times"></i> Standard support only</li>
+            </ul>
+        </div>
+        
+        <button class="plan-button btn btn-outline" onclick="selectPlan('free')">
+            Get Started Free
+        </button>
+        
+        <div class="plan-footer">
+            <small>No credit card required</small>
+        </div>
+    </div>
+    
+    <div class="plan-card featured stagger-animation" data-plan="premium" tabindex="0" role="button" aria-label="Select Premium Plan">
+        <div class="plan-badge premium">Recommended</div>
+        <div class="plan-header">
+            <div class="plan-icon">
+                <i class="fas fa-crown"></i>
+            </div>
+            <div class="plan-title">Premium Plan</div>
+            <div class="plan-price">
+                <span class="currency">$</span>
+                <span class="amount" data-monthly="100" data-annual="80">100</span>
+                <span class="period">per month</span>
+            </div>
+            <div class="plan-description">For professionals and businesses requiring high-volume processing</div>
+        </div>
+        
+        <ul class="plan-features">
+            <li><i class="fas fa-check"></i> 100,000 words per day</li>
+            <li><i class="fas fa-check"></i> Advanced AI detection</li>
+            <li><i class="fas fa-check"></i> Smart humanization</li>
+            <li><i class="fas fa-check"></i> Bulk text processing</li>
+            <li><i class="fas fa-check"></i> Priority support</li>
+            <li><i class="fas fa-check"></i> API access</li>
+            <li><i class="fas fa-check"></i> Export functionality</li>
+            <li><i class="fas fa-check"></i> Advanced analytics</li>
+            <li><i class="fas fa-check"></i> Custom integrations</li>
+            <li><i class="fas fa-check"></i> White-label options</li>
+        </ul>
+        
+        <div class="plan-benefits">
+            <h4>Premium Benefits:</h4>
+            <ul>
+                <li><i class="fas fa-star"></i> 99.9% uptime SLA</li>
+                <li><i class="fas fa-star"></i> Dedicated account manager</li>
+                <li><i class="fas fa-star"></i> Custom training available</li>
+            </ul>
+        </div>
+        
+        <button class="plan-button btn btn-primary" onclick="selectPlan('premium')">
+            <i class="fas fa-rocket"></i>
+            Start Premium Trial
+        </button>
+        
+        <div class="plan-footer">
+            <small>7-day free trial • Cancel anytime</small>
+        </div>
+    </div>
+</div>
+
+<div class="pricing-comparison">
+    <h3>Feature Comparison</h3>
+    <div class="comparison-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Free</th>
+                    <th>Premium</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Daily word limit</td>
+                    <td>50 words</td>
+                    <td>100,000 words</td>
+                </tr>
+                <tr>
+                    <td>AI detection accuracy</td>
+                    <td>Standard (85%)</td>
+                    <td>Advanced (95%+)</td>
+                </tr>
+                <tr>
+                    <td>Humanization quality</td>
+                    <td>Basic</td>
+                    <td>Advanced</td>
+                </tr>
+                <tr>
+                    <td>Bulk processing</td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                </tr>
+                <tr>
+                    <td>API access</td>
+                    <td><i class="fas fa-times text-danger"></i></td>
+                    <td><i class="fas fa-check text-success"></i></td>
+                </tr>
+                <tr>
+                    <td>Export formats</td>
+                    <td>Text only</td>
+                    <td>Text, PDF, DOCX</td>
+                </tr>
+                <tr>
+                    <td>Support response</td>
+                    <td>48-72 hours</td>
+                    <td>2-4 hours</td>
+                </tr>
+                <tr>
+                    <td>Analytics</td>
+                    <td>Basic</td>
+                    <td>Advanced</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="pricing-faq">
+    <h3>Frequently Asked Questions</h3>
+    <div class="faq-grid">
+        <div class="faq-item">
+            <h4>Can I change my plan anytime?</h4>
+            <p>Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any billing differences.</p>
+        </div>
+        <div class="faq-item">
+            <h4>What happens if I exceed my word limit?</h4>
+            <p>Free users will be prompted to upgrade. Premium users get additional words at a small per-word fee, or can upgrade to a higher tier.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Is there a free trial for Premium?</h4>
+            <p>Yes! New users get a 7-day free trial of Premium with full access to all features. No credit card required to start.</p>
+        </div>
+        <div class="faq-item">
+            <h4>How accurate is the AI detection?</h4>
+            <p>Our free plan offers 85% accuracy, while Premium provides 95%+ accuracy with advanced pattern recognition and machine learning.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Do you offer refunds?</h4>
+            <p>Yes, we offer a 30-day money-back guarantee for all paid plans. Contact support for assistance with refunds.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Is my data secure?</h4>
+            <p>Absolutely. We use enterprise-grade security, don't store your text content, and are fully GDPR compliant.</p>
+        </div>
+    </div>
+</div>
+
+<div class="pricing-cta">
+    <div class="cta-content">
+        <h3>Ready to humanize your AI text?</h3>
+        <p>Join thousands of users who trust AI Text Humanizer for natural, engaging content</p>
+        <div class="cta-buttons">
+            <button class="btn btn-primary btn-large" onclick="scrollToElement('#tool')">
+                <i class="fas fa-play"></i>
+                Start Free Now
+            </button>
+            <button class="btn btn-secondary btn-large" onclick="showContactModal()">
+                <i class="fas fa-phone"></i>
+                Contact Sales
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Pricing Component Styles */
+.pricing-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+    color: white;
+}
+
+.pricing-header h2 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-sm);
+}
+
+.pricing-header p {
+    font-size: var(--font-size-lg);
+    opacity: 0.9;
+    margin-bottom: var(--spacing-xl);
+}
+
+.pricing-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.toggle-label {
+    font-size: var(--font-size-base);
+    color: white;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 30px;
+    transition: var(--transition);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+input:checked + .slider {
+    background-color: var(--accent-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(30px);
+}
+
+.discount-badge {
+    background: var(--success-color);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    margin-left: var(--spacing-xs);
+}
+
+.plan-card {
+    position: relative;
+    overflow: visible;
+}
+
+.plan-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--warning-color);
+    color: var(--dark-text);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 15px;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    z-index: 1;
+}
+
+.plan-badge.premium {
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    color: var(--dark-text);
+}
+
+.plan-icon {
+    font-size: var(--font-size-2xl);
+    color: var(--accent-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.plan-card.featured .plan-icon {
+    color: #ffd700;
+}
+
+.plan-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin: var(--spacing-lg) 0;
+}
+
+.plan-price .currency {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+}
+
+.plan-price .amount {
+    font-size: var(--font-size-4xl);
+    font-weight: 800;
+    margin: 0 2px;
+}
+
+.plan-price .period {
+    font-size: var(--font-size-sm);
+    opacity: 0.7;
+}
+
+.plan-description {
+    color: var(--gray-text);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.5;
+}
+
+.plan-features,
+.plan-limitations ul,
+.plan-benefits ul {
+    list-style: none;
+    margin: var(--spacing-lg) 0;
+}
+
+.plan-features li,
+.plan-limitations li,
+.plan-benefits li {
+    padding: var(--spacing-xs) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+}
+
+.plan-limitations {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.plan-limitations h4,
+.plan-benefits h4 {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--gray-text);
+}
+
+.plan-limitations li {
+    color: var(--gray-text);
+}
+
+.plan-benefits {
+    background: var(--light-bg);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    margin: var(--spacing-lg) 0;
+}
+
+.plan-button {
+    width: 100%;
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-weight: 700;
+}
+
+.plan-footer {
+    text-align: center;
+    color: var(--gray-text);
+    font-size: var(--font-size-xs);
+}
+
+.plan-card.featured {
+    transform: scale(1.05);
+    border: 3px solid #ffd700;
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+}
+
+/* Pricing Comparison */
+.pricing-comparison {
+    margin: var(--spacing-3xl) 0;
+    background: white;
+    padding: var(--spacing-2xl);
+    border-radius: var(--border-radius-lg);
+}
+
+.pricing-comparison h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    color: var(--dark-text);
+}
+
+.comparison-table {
+    overflow-x: auto;
+}
+
+.comparison-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-sm);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: var(--spacing-md);
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.comparison-table th {
+    background: var(--light-bg);
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+.comparison-table td:nth-child(3) {
+    background: rgba(102, 126, 234, 0.05);
+    font-weight: 600;
+}
+
+.text-success {
+    color: var(--success-color);
+}
+
+.text-danger {
+    color: var(--danger-color);
+}
+
+/* FAQ Section */
+.pricing-faq {
+    margin: var(--spacing-3xl) 0;
+    background: rgba(255,255,255,0.1);
+    padding: var(--spacing-2xl);
+    border-radius: var(--border-radius-lg);
+    color: white;
+}
+
+.pricing-faq h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.faq-item h4 {
+    margin-bottom: var(--spacing-sm);
+    color: white;
+    font-size: var(--font-size-base);
+}
+
+.faq-item p {
+    color: rgba(255,255,255,0.9);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.pricing-cta {
+    background: linear-gradient(135deg, var(--accent-color), #764ba2);
+    padding: var(--spacing-3xl);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    color: white;
+    margin-top: var(--spacing-3xl);
+}
+
+.cta-content h3 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+}
+
+.cta-content p {
+    font-size: var(--font-size-lg);
+    opacity: 0.9;
+    margin-bottom: var(--spacing-xl);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .plan-card.featured {
+        transform: none;
+        margin-top: var(--spacing-lg);
+    }
+    
+    .comparison-table {
+        font-size: var(--font-size-xs);
+    }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+</style>
+
+<script>
+// Pricing component functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const billingToggle = document.getElementById('billingToggle');
+    
+    if (billingToggle) {
+        billingToggle.addEventListener('change', function() {
+            updatePricing(this.checked);
+        });
+    }
+});
+
+function updatePricing(isAnnual) {
+    const priceElements = document.querySelectorAll('.plan-price .amount');
+    
+    priceElements.forEach(element => {
+        const monthlyPrice = element.getAttribute('data-monthly');
+        const annualPrice = element.getAttribute('data-annual');
+        
+        if (isAnnual) {
+            element.textContent = annualPrice;
+            element.parentNode.querySelector('.period').textContent = 'per month (billed annually)';
+        } else {
+            element.textContent = monthlyPrice;
+            element.parentNode.querySelector('.period').textContent = 'per month';
+        }
+    });
+}
+
+function selectPlan(planId) {
+    // This will be handled by the main app
+    if (window.aiHumanizer) {
+        window.aiHumanizer.selectPlan(planId);
+    }
+    
+    // Scroll to tool section
+    scrollToElement('#tool');
+}
+
+function showContactModal() {
+    showNotification('Contact form would open in a real application. Email: support@aitexthumanizer.com', 'info');
+}
+</script>

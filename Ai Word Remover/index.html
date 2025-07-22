@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Humanizer - Redirecting...</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .loading {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin: 20px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .counter {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FFD700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🤖➡️👤</div>
+        <h1>AI Text Humanizer</h1>
+        <p>Welcome to the most advanced AI text detection and humanization tool!</p>
+        
+        <div class="loading"></div>
+        <br>
+        
+        <p>Redirecting to application in <span class="counter" id="counter">3</span> seconds...</p>
+        
+        <p>
+            <a href="/ai-text-humanizer/?owner=gourav2025" class="btn">
+                🚀 Launch AI Text Humanizer Now
+            </a>
+        </p>
+        
+        <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 30px;">
+            ✨ Owner Access Activated - Unlimited Usage<br>
+            🔥 Advanced AI Detection & Humanization<br>
+            ⚡ Real-time Processing
+        </p>
+    </div>
+
+    <script>
+        // Auto redirect after 3 seconds
+        let counter = 3;
+        const counterElement = document.getElementById('counter');
+        
+        const countdown = setInterval(() => {
+            counter--;
+            counterElement.textContent = counter;
+            
+            if (counter <= 0) {
+                clearInterval(countdown);
+                window.location.href = '/ai-text-humanizer/?owner=gourav2025';
+            }
+        }, 1000);
+        
+        // Also redirect if user clicks anywhere
+        document.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('btn')) {
+                window.location.href = '/ai-text-humanizer/?owner=gourav2025';
+            }
+        });
+    </script>
+</body>
+</html>

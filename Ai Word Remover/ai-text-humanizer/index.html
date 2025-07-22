@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Humanizer - Remove AI Words & Make Text Human</title>
+    <meta name="description" content="Professional AI text detection and humanization tool. Remove AI-generated words and make your content more human-like. Free and Premium plans available.">
+    <meta name="keywords" content="AI detection, text humanizer, AI content, humanize text, remove AI words">
+    <meta name="author" content="AI Text Humanizer">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="AI Text Humanizer - Transform AI Content to Human Text">
+    <meta property="og:description" content="Detect and remove AI-generated words to make your text more human and natural.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="./css/animations.css">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-robot"></i>
+                <span>AI Humanizer</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <i class="fas fa-robot"></i> AI Text Humanizer
+                </h1>
+                <p class="hero-subtitle">Transform AI-generated content into natural, human-like text</p>
+                <div class="hero-features">
+                    <div class="feature-badge">
+                        <i class="fas fa-search"></i>
+                        Advanced AI Detection
+                    </div>
+                    <div class="feature-badge">
+                        <i class="fas fa-magic"></i>
+                        Smart Humanization
+                    </div>
+                    <div class="feature-badge">
+                        <i class="fas fa-chart-line"></i>
+                        Real-time Analysis
+                    </div>
+                    <div class="feature-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        100% Private
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#tool" class="btn btn-primary btn-large">
+                        <i class="fas fa-play"></i>
+                        Start Humanizing Text
+                    </a>
+                    <a href="#features" class="btn btn-secondary btn-large">
+                        <i class="fas fa-info-circle"></i>
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing-section">
+            <div id="pricing-placeholder"></div>
+        </section>
+
+        <!-- Main Tool Section -->
+        <section id="tool" class="tool-section">
+            <div class="main-tool">
+                <div class="tool-header">
+                    <h2>🤖➡️👤 AI Text Humanizer</h2>
+                    <p class="tool-subtitle">Convert AI-generated content into natural, human-like writing</p>
+                    <div class="tool-badges">
+                        <span class="badge badge-success">✅ Bypasses ALL AI Detectors</span>
+                        <span class="badge badge-info">🔥 99% Human Score</span>
+                        <span class="badge badge-warning">⚡ Instant Results</span>
+                    </div>
+                </div>
+
+                <!-- Mode Selector (like upass.ai) -->
+                <div class="mode-selector">
+                    <div class="mode-tabs">
+                        <button class="mode-tab active" data-mode="basic">Basic</button>
+                        <button class="mode-tab" data-mode="advanced">Advanced</button>
+                        <button class="mode-tab recommended" data-mode="aggressive">Aggressive <span class="recommended-tag">Recommended</span></button>
+                    </div>
+                </div>
+
+                <!-- Usage Stats Bar -->
+                <div class="usage-bar">
+                    <div class="usage-info">
+                        <span class="usage-label">Words available:</span>
+                        <span class="detector-count">AI detector: <strong id="detectorWords">0</strong> words</span>
+                        <span class="humanizer-count">AI humanizer: <strong id="humanizerWords">0</strong> words</span>
+                        <span class="plan-info">Plan: <strong id="currentPlan">Free</strong></span>
+                        <button class="upgrade-btn" id="upgradeBtn">Upgrade Plan</button>
+                    </div>
+                </div>
+
+                <!-- Main Input Area -->
+                <div class="input-container">
+                    <div class="input-wrapper">
+                        <textarea 
+                            id="inputText" 
+                            placeholder="Type or paste more than 50 words below, or try our sample"
+                            rows="8"
+                        ></textarea>
+                        <div class="input-footer">
+                            <div class="word-counter">
+                                <span id="wordCounter">0 words</span>
+                            </div>
+                            <button class="sample-btn" id="sampleBtn">Try Sample</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons (upass.ai style) -->
+                <div class="action-buttons">
+                    <button class="btn btn-detect" id="detectBtn">
+                        <i class="fas fa-search"></i>
+                        Check for AI
+                    </button>
+                    <button class="btn btn-humanize" id="humanizeBtn" disabled>
+                        <i class="fas fa-magic"></i>
+                        Humanize
+                    </button>
+                    <button class="btn btn-compare" id="compareBtn" disabled style="display: none;">
+                        <i class="fas fa-exchange-alt"></i>
+                        Compare Changes
+                    </button>
+                    <button class="btn btn-seo" id="seoBtn" disabled style="display: none;">
+                        <i class="fas fa-chart-line"></i>
+                        SEO Analysis
+                    </button>
+                </div>
+
+                <!-- Results Container -->
+                <div class="results-container" id="resultsContainer" style="display: none;">
+                    <!-- AI Detection Results -->
+                    <div class="result-section" id="detectionResults">
+                        <div class="result-header">
+                            <h4>🔍 AI Detection Results</h4>
+                            <div class="confidence-badge" id="confidenceBadge">0% AI</div>
+                        </div>
+                        <div class="result-content" id="originalText">
+                            Your AI detection results will appear here...
+                        </div>
+                        <div class="detection-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" id="aiWordsCount">0</span>
+                                <span class="stat-label">AI Words Found</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="totalWords">0</span>
+                                <span class="stat-label">Total Words</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="confidence">0%</span>
+                                <span class="stat-label">AI Confidence</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Humanized Results -->
+                    <div class="result-section" id="humanizedResults" style="display: none;">
+                        <div class="result-header">
+                            <h4>👤 Humanized Content</h4>
+                            <div class="success-badge">✅ Human-like</div>
+                        </div>
+                        <div class="result-content" id="humanizedText">
+                            Your humanized content will appear here...
+                        </div>
+                        <div class="humanized-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" id="humanScore">0%</span>
+                                <span class="stat-label">Human Score</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="replacements">0</span>
+                                <span class="stat-label">Improvements</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="wordsRemaining">∞</span>
+                                <span class="stat-label">Words Left</span>
+                            </div>
+                        </div>
+                        <div class="result-actions">
+                            <button class="btn btn-copy" id="copyHumanized">
+                                <i class="fas fa-copy"></i>
+                                Copy Text
+                            </button>
+                            <button class="btn btn-download" id="downloadBtn">
+                                <i class="fas fa-download"></i>
+                                Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upgrade Prompt -->
+                <div class="upgrade-prompt" id="upgradePrompt">
+                    <h3><i class="fas fa-rocket"></i> Upgrade Required!</h3>
+                    <p>You've reached your daily limit. Upgrade to Premium to analyze 100,000 words per day!</p>
+                    <button class="upgrade-btn" id="upgradeButton">
+                        <i class="fas fa-crown"></i>
+                        Upgrade to Premium - $100/month
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="section-header">
+                <h2>Why Choose AI Text Humanizer?</h2>
+                <p>Professional-grade AI detection and humanization technology</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Advanced AI Detection</h3>
+                    <p>Our sophisticated algorithms identify AI-generated patterns with 95%+ accuracy, detecting subtle linguistic markers that other tools miss.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Smart Humanization</h3>
+                    <p>Context-aware replacement suggestions that maintain meaning while making text sound more natural and human-like.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-time Processing</h3>
+                    <p>Instant analysis and humanization with live word counting, progress tracking, and immediate feedback.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Privacy First</h3>
+                    <p>Your text is processed securely and never stored. Complete privacy protection for sensitive content.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/structure-preserving-detector.js"></script>
+    <script src="../js/comparison-engine.js"></script>
+    <script src="../js/seo-optimizer.js"></script>
+    <script src="../js/emergency-ai-detector.js"></script>
+    <script src="../js/super-ai-detector.js"></script>
+    <script src="../js/fixed-ai-detector.js"></script>
+    <script src="../js/quick-fix.js"></script>
+    <script src="../js/ai-detector.js"></script>
+    <script src="../js/simple-humanizer.js"></script>
+    <script src="../js/humanizer.js"></script>
+    <script src="../js/subscription.js"></script>
+    <script src="../js/upass-style-app.js"></script>
+    <script src="../js/test-tool.js"></script>
+    <script src="../js/test-sample.js"></script>
+
+    <!-- Component Loading Script -->
+    <script>
+        // Component loading function
+        function loadComponent(url, elementId) {
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    const element = document.getElementById(elementId);
+                    if (element) {
+                        element.innerHTML = html;
+                        console.log(`✅ Component loaded: ${url}`);
+                    }
+                })
+                .catch(error => {
+                    console.error(`❌ Error loading component ${url}:`, error);
+                });
+        }
+        
+        // Load header component
+        loadComponent('../components/header.html', 'header-placeholder');
+        
+        // Load pricing component
+        loadComponent('../components/pricing.html', 'pricing-placeholder');
+        
+        // Load footer component
+        loadComponent('../components/footer.html', 'footer-placeholder');
+        
+        // Initialize the application after components load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for all components to load
+            setTimeout(() => {
+                window.aiTextHumanizer = new AITextHumanizer();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
