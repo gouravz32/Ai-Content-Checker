@@ -297,16 +297,17 @@
     <script src="../js/comparison-engine.js"></script>
     <script src="../js/seo-optimizer.js"></script>
     <script src="../js/emergency-ai-detector.js"></script>
-    <script src="../js/super-ai-detector.js"></script>
-    <script src="../js/fixed-ai-detector.js"></script>
-    <script src="../js/quick-fix.js"></script>
-    <script src="../js/ai-detector.js"></script>
-    <script src="../js/simple-humanizer.js"></script>
-    <script src="../js/humanizer.js"></script>
+    <!-- Main JavaScript Files -->
+    <!-- <script src="../js/super-ai-detector.js"></script> -->
+    <!-- <script src="../js/fixed-ai-detector.js"></script> -->
+    <!-- <script src="../js/quick-fix.js"></script> -->
+    <!-- <script src="../js/ai-detector.js"></script> -->
+    <!-- <script src="../js/simple-humanizer.js"></script> -->
+    <!-- <script src="../js/humanizer.js"></script> -->
     <script src="../js/subscription.js"></script>
     <script src="../js/upass-style-app.js"></script>
-    <script src="../js/test-tool.js"></script>
-    <script src="../js/test-sample.js"></script>
+    <!-- <script src="../js/test-tool.js"></script> -->
+    <!-- <script src="../js/test-sample.js"></script> -->
 
     <!-- Component Loading Script -->
     <script>
@@ -326,22 +327,20 @@
                 });
         }
         
-        // Load header component
-        loadComponent('../components/header.html', 'header-placeholder');
-        
-        // Load pricing component
-        loadComponent('../components/pricing.html', 'pricing-placeholder');
-        
-        // Load footer component
-        loadComponent('../components/footer.html', 'footer-placeholder');
-        
-        // Initialize the application after components load
+        // Load components when DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
-            // Wait for all components to load
-            setTimeout(() => {
-                window.aiTextHumanizer = new AITextHumanizer();
-            }, 500);
+            // Load header component
+            loadComponent('../components/header.html', 'header-placeholder');
+            
+            // Load pricing component
+            loadComponent('../components/pricing.html', 'pricing-placeholder');
+            
+            // Load footer component
+            loadComponent('../components/footer.html', 'footer-placeholder');
+            
+            // Note: UPassStyleApp is initialized by its own DOMContentLoaded listener
         });
+    </script>
     </script>
 </body>
 </html>

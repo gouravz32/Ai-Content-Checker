@@ -3,121 +3,1922 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Text Humanizer - Redirecting...</title>
+    <title>AI Text Humanizer - Get Undetectable AI Content with 99% Human Score</title>
+    <meta name="description" content="Transform AI-generated content into natural, human-like text that bypasses all AI detectors. Get 99% human scores with our advanced humanization technology.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+        :root {
+            --primary-blue: #6366f1;
+            --primary-purple: #8b5cf6;
+            --dark-bg: #0f0f23;
+            --card-bg: #1a1a2e;
+            --text-white: #ffffff;
+            --text-gray: #9ca3af;
+            --text-light: #e5e7eb;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --border-color: #2d2d4a;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-white);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-white);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="g"><stop offset="0%" stop-color="%236366f1" stop-opacity="0.1"/><stop offset="100%" stop-color="%236366f1" stop-opacity="0"/></radialGradient></defs><circle cx="300" cy="200" r="200" fill="url(%23g)"/><circle cx="700" cy="800" r="300" fill="url(%23g)"/></svg>') no-repeat center;
+            background-size: cover;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-white), var(--primary-blue));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats-inline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0 3rem;
+            justify-content: center;
+        }
+
+        .stat-badge {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            color: var(--text-light);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Main Container Layout */
+        .main-container {
+            display: flex;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            align-items: flex-start;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            height: fit-content;
+        }
+
+        .sidebar-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-title {
+            color: var(--text-white);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .words-available {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .words-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-gray);
+            font-size: 0.875rem;
+        }
+
+        .words-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .plan-info {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .plan-badge {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .upgrade-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .upgrade-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .tool-content {
+            flex: 1;
+        }
+
+        /* Tool Interface */
+        .tool-interface {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 0 auto 4rem;
+            max-width: 1000px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .tool-header {
+            display: flex;
+            gap: 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .tool-tab {
+            background: #2a2d3a;
+            border: none;
+            color: var(--text-gray);
+            padding: 1rem 2rem;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border-radius: 10px 10px 0 0;
+            margin-right: 1px;
+            position: relative;
+        }
+
+        .tool-tab.active {
+            background: var(--card-bg);
+            color: var(--primary-blue);
+            border-bottom-color: var(--primary-blue);
+        }
+
+        .tool-tab .badge {
+            background: #10b981;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 8px;
+            font-weight: 500;
+        }
+
+        .textarea-container {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .input-header {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .input-header h3 {
+            color: var(--text-white);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .input-header h3 i {
+            color: var(--primary-blue);
+            margin-right: 0.5rem;
+        }
+
+        .input-header p {
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+
+        .action-link {
+            color: var(--primary-blue);
+            cursor: pointer;
+            text-decoration: underline;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .action-link:hover {
+            color: #818cf8;
+        }
+
+        .enhanced-textarea-wrapper {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--input-bg);
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .enhanced-textarea-wrapper:focus-within {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .enhanced-textarea {
+            width: 100%;
+            min-height: 400px;
+            background: transparent;
+            border: none;
+            color: var(--text-white);
+            font-size: 1rem;
+            line-height: 1.6;
+            padding: 2rem;
+            resize: vertical;
+            outline: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .enhanced-textarea::placeholder {
+            color: var(--text-gray);
+            opacity: 0.7;
+        }
+
+        .textarea-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 26, 46, 0.95);
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 16px;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .textarea-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .overlay-content {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .overlay-content i {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .overlay-content h4 {
+            color: var(--text-white);
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .overlay-content p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            max-width: 400px;
+        }
+
+        .paste-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .paste-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .btn-check-ai, .btn-humanize {
+            position: relative;
+            padding: 1.25rem 2.5rem;
+            border: none;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            min-width: 200px;
             text-align: center;
         }
-        .container {
-            max-width: 600px;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-        .logo {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        .loading {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease-in-out infinite;
-            margin: 20px 0;
-        }
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background: rgba(255,255,255,0.2);
+
+        .btn-check-ai {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
             color: white;
-            text-decoration: none;
-            border-radius: 10px;
+            border: 2px solid transparent;
+        }
+
+        .btn-check-ai:hover:not(:disabled) {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(239, 68, 68, 0.4);
+        }
+
+        .btn-humanize {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+        }
+
+        .btn-humanize:hover:not(:disabled) {
+            background: linear-gradient(135deg, #5b21b6, var(--primary-blue));
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-check-ai:disabled, .btn-humanize:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-subtitle {
+            font-size: 0.8rem;
+            font-weight: 400;
+            opacity: 0.9;
+            line-height: 1.2;
+        }
+
+        .btn-check-ai i, .btn-humanize i {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .main-textarea {
+            width: 100%;
+            min-height: 300px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            color: var(--text-white);
+            font-size: 1rem;
+            line-height: 1.6;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .main-textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .textarea-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .btn-check-ai, .btn-humanize {
+            position: relative;
+            padding: 1.25rem 2.5rem;
+            border: none;
+            border-radius: 16px;
             font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
             transition: all 0.3s ease;
-            border: 2px solid rgba(255,255,255,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            min-width: 200px;
+            text-align: center;
         }
-        .btn:hover {
-            background: rgba(255,255,255,0.3);
+
+        .btn-check-ai {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            border: 2px solid transparent;
+        }
+
+        .btn-check-ai:hover:not(:disabled) {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(239, 68, 68, 0.4);
+        }
+
+        .btn-humanize {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+        }
+
+        .btn-humanize:hover:not(:disabled) {
+            background: linear-gradient(135deg, #5b21b6, var(--primary-blue));
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-check-ai:disabled, .btn-humanize:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-subtitle {
+            font-size: 0.8rem;
+            font-weight: 400;
+            opacity: 0.9;
+            line-height: 1.2;
+        }
+
+        .btn-check-ai i, .btn-humanize i {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
             transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
         }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-color);
+            color: var(--text-white);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-accent {
+            background: linear-gradient(135deg, var(--accent-green), #059669);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-seo {
+            background: linear-gradient(135deg, var(--primary-purple), #7c3aed);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-seo:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .features-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .features-header p {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Demo Section */
+        .demo {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 4rem auto;
+            max-width: 1200px;
+            border: 1px solid var(--border-color);
+        }
+
+        .demo-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .demo-interface {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .demo-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            min-height: 200px;
+        }
+
+        .demo-arrow {
+            font-size: 2rem;
+            color: var(--primary-blue);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 2rem 2rem;
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .footer-stat-item {
+            text-align: center;
+        }
+
+        .footer-stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-stat-label {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tool-interface {
+                margin: 0 1rem 4rem;
+                padding: 1.5rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .demo-interface {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .demo-arrow {
+                transform: rotate(90deg);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Loading States */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .spinner {
+            animation: spin 1s linear infinite;
+        }
+
         @keyframes spin {
+            from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-        .counter {
+
+        /* Notifications */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            color: var(--text-white);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 1001;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .notification.error {
+            border-left: 4px solid #ef4444;
+        }
+
+        /* Results styles */
+        .results-container {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .ai-highlighted {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .comparison-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .comparison-panel h4 {
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+
+        .seo-score {
             font-size: 2rem;
-            font-weight: bold;
-            color: #FFD700;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        .seo-recommendations {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* AI Detection Results */
+        .ai-detection-results {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .detection-header {
+            margin-bottom: 2rem;
+        }
+
+        .detection-status {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .status-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .status-text h3 {
+            color: #ef4444;
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .status-text p {
+            color: var(--text-gray);
+            margin: 0;
+        }
+
+        .detectors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .detector-item {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .detector-item:hover {
+            background: rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-blue);
+        }
+
+        .detector-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .detector-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+        }
+
+        .detector-name {
+            color: var(--text-white);
+            font-weight: 500;
+        }
+
+        .detector-result {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .detector-result.ai-detected {
+            color: #ef4444;
+        }
+
+        .detector-result.human-written {
+            color: var(--accent-green);
+        }
+
+        .detection-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .btn-humanize-now, .btn-check-again {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-humanize-now {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+        }
+
+        .btn-humanize-now:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-check-again {
+            background: transparent;
+            color: var(--text-gray);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-check-again:hover {
+            background: rgba(0, 0, 0, 0.2);
+            color: var(--text-white);
+            border-color: var(--primary-blue);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">🤖➡️👤</div>
-        <h1>AI Text Humanizer</h1>
-        <p>Welcome to the most advanced AI text detection and humanization tool!</p>
-        
-        <div class="loading"></div>
-        <br>
-        
-        <p>Redirecting to application in <span class="counter" id="counter">3</span> seconds...</p>
-        
-        <p>
-            <a href="/ai-text-humanizer/?owner=gourav2025" class="btn">
-                🚀 Launch AI Text Humanizer Now
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">
+                <i class="fas fa-robot"></i>
+                AI Text Humanizer
             </a>
-        </p>
-        
-        <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 30px;">
-            ✨ Owner Access Activated - Unlimited Usage<br>
-            🔥 Advanced AI Detection & Humanization<br>
-            ⚡ Real-time Processing
-        </p>
-    </div>
+            
+            <ul class="nav-links">
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            
+            <a href="signup.html" class="nav-cta">Sign up</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Get Undetectable AI Assignments and<br>Essays with 99% Human Scores</h1>
+            
+            <div class="hero-stats-inline">
+                <span class="stat-badge">15M+ users choose uPass AI</span>
+                <span class="stat-badge">Humanizes 3M+ words daily</span>
+                <span class="stat-badge">Bypasses ALL AI detectors</span>
+            </div>
+
+            <!-- Main Tool Interface -->
+            <div class="main-container">
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">
+                            <i class="fas fa-calculator"></i>
+                            Words available:
+                        </div>
+                        <div class="words-available">
+                            <div class="words-item">
+                                <i class="fas fa-search" style="color: var(--primary-blue);"></i>
+                                AI detector: 300 words
+                            </div>
+                            <div class="words-item">
+                                <i class="fas fa-magic" style="color: var(--primary-purple);"></i>
+                                AI humanizer: 300 words
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">
+                            <i class="fas fa-user"></i>
+                            Plan: Free
+                        </div>
+                        <div class="plan-info">
+                            <div class="plan-badge">Free Plan</div>
+                            <button class="upgrade-btn" onclick="window.location.href='pricing.html'">
+                                <i class="fas fa-crown"></i>
+                                Upgrade Plan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool Content -->
+                <div class="tool-content">
+                    <div class="tool-interface">
+                        <div class="tool-header">
+                            <button class="tool-tab active" data-mode="basic">Basic</button>
+                            <button class="tool-tab" data-mode="advanced">Advanced</button>
+                            <button class="tool-tab" data-mode="aggressive">Aggressive</button>
+                            <div class="recommended-badge" style="margin-left: auto; background: rgba(16, 185, 129, 0.2); color: var(--accent-green); padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">
+                                <i class="fas fa-star"></i>
+                                Recommended Use
+                            </div>
+                        </div>
+
+                        <div class="textarea-container">
+                            <div class="input-header">
+                                <h3><i class="fas fa-edit"></i> Paste Your AI-Generated Content</h3>
+                                <p>Type or <span class="action-link" onclick="pasteContent()">paste</span> more than 50 words below, or <span class="action-link" onclick="loadSample()">try our sample</span></p>
+                            </div>
+                            
+                            <div class="enhanced-textarea-wrapper">
+                                <textarea 
+                                    class="enhanced-textarea" 
+                                    id="inputText"
+                                    placeholder="Paste your AI-generated content here to humanize it..."
+                                    maxlength="10000"
+                                ></textarea>
+                                <div class="textarea-overlay" id="textareaOverlay">
+                                    <div class="overlay-content">
+                                        <i class="fas fa-paste"></i>
+                                        <h4>Ready to humanize your content?</h4>
+                                        <p>Paste your AI-generated text here and watch it transform into undetectable, human-like content</p>
+                                        <button class="paste-btn" onclick="pasteContent()">
+                                            <i class="fas fa-clipboard"></i>
+                                            Paste Content
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="textarea-footer">
+                                <div class="word-count" id="wordCount">0 words</div>
+                                <div class="char-count" id="charCount">0/10,000 characters</div>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="btn-check-ai" id="detectBtn" disabled>
+                                <i class="fas fa-search"></i>
+                                Check for AI
+                                <span class="btn-subtitle">See which AI detectors flag your content</span>
+                            </button>
+                            <button class="btn-humanize" id="humanizeBtn" disabled style="display: none;">
+                                <i class="fas fa-magic"></i>
+                                Humanize
+                                <span class="btn-subtitle">Transform to 99% human-like content</span>
+                            </button>
+                        </div>
+
+                        <!-- Results Section -->
+                        <div class="ai-detection-results" id="aiDetectionResults" style="display: none;">
+                            <div class="detection-header">
+                                <div class="detection-status">
+                                    <div class="status-icon">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                    </div>
+                                    <div class="status-text">
+                                        <h3>The input content seems to be AI-generated.</h3>
+                                        <p>Checking result:</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="detectors-grid">
+                                <div class="detector-item">
+                                    <div class="detector-info">
+                                        <img src="https://via.placeholder.com/24x24/6366f1/ffffff?text=GP" alt="GPTZero" class="detector-icon">
+                                        <span class="detector-name">GPTZero</span>
+                                    </div>
+                                    <div class="detector-result ai-detected">
+                                        <i class="fas fa-times"></i>
+                                        <span>AI-generated</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="detector-item">
+                                    <div class="detector-info">
+                                        <img src="https://via.placeholder.com/24x24/10b981/ffffff?text=CL" alt="Copyleaks" class="detector-icon">
+                                        <span class="detector-name">Copyleaks</span>
+                                    </div>
+                                    <div class="detector-result ai-detected">
+                                        <i class="fas fa-times"></i>
+                                        <span>AI-generated</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="detector-item">
+                                    <div class="detector-info">
+                                        <img src="https://via.placeholder.com/24x24/8b5cf6/ffffff?text=ZG" alt="ZeroGPT" class="detector-icon">
+                                        <span class="detector-name">ZeroGPT</span>
+                                    </div>
+                                    <div class="detector-result ai-detected">
+                                        <i class="fas fa-times"></i>
+                                        <span>AI-generated</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="detector-item">
+                                    <div class="detector-info">
+                                        <img src="https://via.placeholder.com/24x24/ef4444/ffffff?text=CP" alt="Crossplag" class="detector-icon">
+                                        <span class="detector-name">Crossplag</span>
+                                    </div>
+                                    <div class="detector-result ai-detected">
+                                        <i class="fas fa-times"></i>
+                                        <span>AI-generated</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="detector-item">
+                                    <div class="detector-info">
+                                        <img src="https://via.placeholder.com/24x24/f59e0b/ffffff?text=SP" alt="Sapling" class="detector-icon">
+                                        <span class="detector-name">Sapling</span>
+                                    </div>
+                                    <div class="detector-result ai-detected">
+                                        <i class="fas fa-times"></i>
+                                        <span>AI-generated</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="detector-item">
+                                    <div class="detector-info">
+                                        <img src="https://via.placeholder.com/24x24/6366f1/ffffff?text=WR" alt="Writer" class="detector-icon">
+                                        <span class="detector-name">Writer</span>
+                                    </div>
+                                    <div class="detector-result ai-detected">
+                                        <i class="fas fa-times"></i>
+                                        <span>AI-generated</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="detector-item">
+                                    <div class="detector-info">
+                                        <img src="https://via.placeholder.com/24x24/ec4899/ffffff?text=BW" alt="BrandWell" class="detector-icon">
+                                        <span class="detector-name">BrandWell</span>
+                                    </div>
+                                    <div class="detector-result ai-detected">
+                                        <i class="fas fa-times"></i>
+                                        <span>AI-generated</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="detection-actions">
+                                <button class="btn-humanize-now" onclick="showHumanizeSection()">
+                                    <i class="fas fa-magic"></i>
+                                    Humanize Now
+                                </button>
+                                <button class="btn-check-again" onclick="checkForAI()">
+                                    <i class="fas fa-redo"></i>
+                                    Check Again
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="results-area" id="resultsContainer" style="display: none; margin-top: 2rem; padding: 2rem; background: rgba(0,0,0,0.3); border-radius: 12px; border: 1px solid var(--border-color);">
+                            <div class="results-placeholder" style="color: var(--text-gray); text-align: center; padding: 2rem;">
+                                Your humanized content will appear here.
+                            </div>
+                        </div>
+                        <div id="comparisonContainer" style="display: none;"></div>
+                        <div id="seoContainer" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-header">
+            <h2>Undetectable AI Bypasser That Beats<br>Turnitin and Others</h2>
+            <p>Our advanced AI humanization technology ensures your content passes all major AI detection tools with flying colors.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-check"></i>
+                </div>
+                <h3>Bypasses All AI Detectors</h3>
+                <p>Successfully passes Turnitin, GPTZero, Originality.ai, Copyleaks, and 15+ other leading AI detection tools with 99% human scores.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Lightning Fast Processing</h3>
+                <p>Get your humanized content in seconds. Our advanced algorithms process thousands of words instantly while maintaining quality.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Advanced AI Technology</h3>
+                <p>Powered by cutting-edge language models that understand context, tone, and writing style to create perfectly natural content.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Built-in AI Detector</h3>
+                <p>Comprehensive AI detection that identifies patterns across 20+ detection systems before humanization for maximum effectiveness.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>SEO Optimization</h3>
+                <p>Automatically optimizes your content for search engines while maintaining human-like readability and engagement.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-copy"></i>
+                </div>
+                <h3>Plagiarism-Free Guarantee</h3>
+                <p>Every piece of humanized content is guaranteed to be 100% plagiarism-free and completely original.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo">
+        <div class="demo-header">
+            <h2>Effective AI Bypasser Against Any AI Detector</h2>
+            <p>See how our AI humanizer transforms detectable content into natural, human-like text</p>
+        </div>
+
+        <div class="demo-interface">
+            <div class="demo-panel">
+                <h4 style="color: #ef4444; margin-bottom: 1rem;">❌ Original AI Text (Detected)</h4>
+                <p style="color: #9ca3af; line-height: 1.6;">
+                    To <span style="background: #ef4444; color: white; padding: 2px 6px; border-radius: 4px;">effectively utilize</span> our 
+                    <span style="background: #ef4444; color: white; padding: 2px 6px; border-radius: 4px;">comprehensive methodology</span>, we must 
+                    <span style="background: #ef4444; color: white; padding: 2px 6px; border-radius: 4px;">leverage</span> cutting-edge innovations to 
+                    <span style="background: #ef4444; color: white; padding: 2px 6px; border-radius: 4px;">facilitate</span> optimal outcomes.
+                    <span style="background: #ef4444; color: white; padding: 2px 6px; border-radius: 4px;">Furthermore</span>, this advanced paradigm will 
+                    <span style="background: #ef4444; color: white; padding: 2px 6px; border-radius: 4px;">enhance</span> our ability to streamline operations.
+                </p>
+            </div>
+            
+            <div class="demo-arrow">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            
+            <div class="demo-panel">
+                <h4 style="color: #10b981; margin-bottom: 1rem;">✅ Humanized Text (Undetected)</h4>
+                <p style="color: #9ca3af; line-height: 1.6;">
+                    To <span style="background: #10b981; color: white; padding: 2px 6px; border-radius: 4px;">effectively use</span> our 
+                    <span style="background: #10b981; color: white; padding: 2px 6px; border-radius: 4px;">complete approach</span>, we must 
+                    <span style="background: #10b981; color: white; padding: 2px 6px; border-radius: 4px;">use</span> modern innovations to 
+                    <span style="background: #10b981; color: white; padding: 2px 6px; border-radius: 4px;">help</span> achieve the best results.
+                    <span style="background: #10b981; color: white; padding: 2px 6px; border-radius: 4px;">Also</span>, this advanced method will 
+                    <span style="background: #10b981; color: white; padding: 2px 6px; border-radius: 4px;">improve</span> our ability to streamline operations.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">99%</div>
+                <div class="stat-label">Human Score Rate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500K+</div>
+                <div class="stat-label">Texts Processed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Happy Users</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">99.9%</div>
+                <div class="stat-label">Uptime</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo" style="margin-bottom: 1rem;">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Text Humanizer</span>
+                </div>
+                <p style="color: var(--text-gray); margin-bottom: 2rem;">
+                    Transform AI-generated content into natural, human-like text with our advanced detection and humanization technology.
+                </p>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="#" style="color: var(--text-gray); font-size: 1.25rem;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="color: var(--text-gray); font-size: 1.25rem;"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" style="color: var(--text-gray); font-size: 1.25rem;"><i class="fab fa-github"></i></a>
+                    <a href="#" style="color: var(--text-gray); font-size: 1.25rem;"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul class="footer-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#api">API Documentation</a></li>
+                    <li><a href="#integrations">Integrations</a></li>
+                    <li><a href="#changelog">Changelog</a></li>
+                    <li><a href="#roadmap">Roadmap</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#press">Press Kit</a></li>
+                    <li><a href="#investors">Investors</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="#help">Help Center</a></li>
+                    <li><a href="#guides">User Guides</a></li>
+                    <li><a href="#tutorials">Tutorials</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#webinars">Webinars</a></li>
+                    <li><a href="#status">Status Page</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#cookies">Cookie Policy</a></li>
+                    <li><a href="#gdpr">GDPR Compliance</a></li>
+                    <li><a href="#security">Security</a></li>
+                    <li><a href="#dmca">DMCA</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-stats">
+            <div class="footer-stat-item">
+                <div class="footer-stat-number">500,234</div>
+                <div class="footer-stat-label">Texts Processed</div>
+            </div>
+            <div class="footer-stat-item">
+                <div class="footer-stat-number">50,120</div>
+                <div class="footer-stat-label">Happy Users</div>
+            </div>
+            <div class="footer-stat-item">
+                <div class="footer-stat-number">99.9%</div>
+                <div class="footer-stat-label">Uptime</div>
+            </div>
+            <div class="footer-stat-item">
+                <div class="footer-stat-number">95%</div>
+                <div class="footer-stat-label">Accuracy</div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>
+                <p>&copy; 2025 AI Text Humanizer. All rights reserved.</p>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+                <span style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-shield-check" style="color: var(--accent-green);"></i>
+                    SOC 2 Compliant
+                </span>
+                <span style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-lock" style="color: var(--accent-green);"></i>
+                    GDPR Ready
+                </span>
+                <span style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-certificate" style="color: var(--accent-green);"></i>
+                    ISO 27001
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load JavaScript files -->
+    <script src="js/utils.js"></script>
+    <script src="js/structure-preserving-detector.js"></script>
+    <script src="js/comparison-engine.js"></script>
+    <script src="js/seo-optimizer.js"></script>
+    <script src="js/emergency-ai-detector.js"></script>
+    <script src="js/super-ai-detector.js"></script>
+    <script src="js/fixed-ai-detector.js"></script>
+    <script src="js/quick-fix.js"></script>
+    <script src="js/ai-detector.js"></script>
+    <script src="js/simple-humanizer.js"></script>
+    <script src="js/humanizer.js"></script>
+    <script src="js/subscription.js"></script>
+    <script src="js/upass-style-app.js"></script>
 
     <script>
-        // Auto redirect after 3 seconds
-        let counter = 3;
-        const counterElement = document.getElementById('counter');
-        
-        const countdown = setInterval(() => {
-            counter--;
-            counterElement.textContent = counter;
-            
-            if (counter <= 0) {
-                clearInterval(countdown);
-                window.location.href = '/ai-text-humanizer/?owner=gourav2025';
+        // Homepage specific functionality
+        class AITextHomepage {
+            constructor() {
+                this.init();
             }
-        }, 1000);
-        
-        // Also redirect if user clicks anywhere
-        document.addEventListener('click', (e) => {
-            if (!e.target.classList.contains('btn')) {
-                window.location.href = '/ai-text-humanizer/?owner=gourav2025';
+
+            init() {
+                this.setupTabSwitching();
+                this.setupTextareaHandlers();
+                this.setupSampleText();
+                this.setupActionButtons();
+                this.setupScrollEffects();
+                console.log('🏠 AI Text Humanizer Homepage initialized');
             }
+
+            setupTabSwitching() {
+                const tabs = document.querySelectorAll('.tool-tab');
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        tabs.forEach(t => t.classList.remove('active'));
+                        tab.classList.add('active');
+                        
+                        const mode = tab.dataset.mode;
+                        this.switchMode(mode);
+                    });
+                });
+            }
+
+            switchMode(mode) {
+                const detectBtn = document.getElementById('detectBtn');
+                const humanizeBtn = document.getElementById('humanizeBtn');
+                const textarea = document.getElementById('inputText');
+
+                if (mode === 'detector') {
+                    detectBtn.style.display = 'flex';
+                    humanizeBtn.style.display = 'none';
+                    textarea.placeholder = 'Paste your AI-generated content here to detect AI patterns...';
+                } else {
+                    detectBtn.style.display = 'none';
+                    humanizeBtn.style.display = 'flex';
+                    textarea.placeholder = 'Paste your AI-generated content here to humanize it...';
+                }
+            }
+
+            setupTextareaHandlers() {
+                const textarea = document.getElementById('inputText');
+                const wordCount = document.getElementById('wordCount');
+                const charCount = document.getElementById('charCount');
+                const detectBtn = document.getElementById('detectBtn');
+                const humanizeBtn = document.getElementById('humanizeBtn');
+
+                textarea.addEventListener('input', () => {
+                    const text = textarea.value;
+                    const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+                    const chars = text.length;
+
+                    wordCount.textContent = `${words} words`;
+                    charCount.textContent = `${chars}/10,000 characters`;
+
+                    // Enable/disable buttons based on content
+                    const hasContent = text.trim().length > 0;
+                    detectBtn.disabled = !hasContent;
+                    humanizeBtn.disabled = !hasContent;
+                });
+            }
+
+            setupSampleText() {
+                const sampleBtn = document.getElementById('sampleBtn');
+                const textarea = document.getElementById('inputText');
+
+                sampleBtn.addEventListener('click', () => {
+                    const sampleText = `To effectively utilize our comprehensive methodology for digital marketing success, we must leverage cutting-edge innovations to facilitate optimal outcomes in today's competitive landscape. Furthermore, this advanced paradigm will enhance our ability to streamline operations and maximize efficiency through systematic implementation.
+
+The comprehensive analysis demonstrates that organizations must systematically evaluate their strategic approaches to ensure competitive advantages. Subsequently, the implementation of these robust solutions will enable businesses to achieve unprecedented levels of performance optimization.
+
+Moreover, it is important to note that the utilization of advanced technologies facilitates the enhancement of operational efficiency. Consequently, organizations can leverage these innovative solutions to optimize their strategic initiatives and establish sustainable competitive advantages in the marketplace.`;
+
+                    textarea.value = sampleText;
+                    textarea.dispatchEvent(new Event('input'));
+                    this.showNotification('Sample text loaded! Click "Check for AI" to see detection.', 'success');
+                });
+            }
+
+            setupActionButtons() {
+                const detectBtn = document.getElementById('detectBtn');
+                const humanizeBtn = document.getElementById('humanizeBtn');
+                const compareBtn = document.getElementById('compareBtn');
+                const seoBtn = document.getElementById('seoBtn');
+
+                detectBtn.addEventListener('click', () => {
+                    this.detectAI();
+                });
+
+                humanizeBtn.addEventListener('click', () => {
+                    this.humanizeText();
+                });
+
+                compareBtn.addEventListener('click', () => {
+                    this.showComparison();
+                });
+
+                seoBtn.addEventListener('click', () => {
+                    this.analyzeSEO();
+                });
+            }
+
+            detectAI() {
+                const textarea = document.getElementById('inputText');
+                const text = textarea.value.trim();
+
+                if (!text) {
+                    this.showNotification('Please enter some text to analyze.', 'error');
+                    return;
+                }
+
+                // Initialize the main app if not already done
+                if (!window.upassApp) {
+                    window.upassApp = new UpassStyleApp();
+                }
+
+                // Set the text and trigger detection
+                window.upassApp.currentText = text;
+                window.upassApp.detectAI();
+            }
+
+            humanizeText() {
+                const textarea = document.getElementById('inputText');
+                const text = textarea.value.trim();
+
+                if (!text) {
+                    this.showNotification('Please enter some text to humanize.', 'error');
+                    return;
+                }
+
+                // Initialize the main app if not already done
+                if (!window.upassApp) {
+                    window.upassApp = new UpassStyleApp();
+                }
+
+                // Set the text and trigger humanization
+                window.upassApp.currentText = text;
+                window.upassApp.humanizeText();
+            }
+
+            showComparison() {
+                if (!window.upassApp || !window.upassApp.originalText || !window.upassApp.humanizedText) {
+                    this.showNotification('Please detect and humanize text first.', 'error');
+                    return;
+                }
+
+                window.upassApp.compareTexts();
+            }
+
+            analyzeSEO() {
+                const textarea = document.getElementById('inputText');
+                const text = textarea.value.trim();
+
+                if (!text) {
+                    this.showNotification('Please enter some text to analyze.', 'error');
+                    return;
+                }
+
+                // Initialize the main app if not already done
+                if (!window.upassApp) {
+                    window.upassApp = new UpassStyleApp();
+                }
+
+                window.upassApp.analyzeSEO(text);
+            }
+
+            setupScrollEffects() {
+                // Add smooth scrolling to navigation links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
+                });
+
+                // Add scroll-based animations
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe feature cards
+                document.querySelectorAll('.feature-card').forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    observer.observe(card);
+                });
+            }
+
+            showNotification(message, type = 'info') {
+                // Remove existing notifications
+                const existing = document.querySelector('.notification');
+                if (existing) {
+                    existing.remove();
+                }
+
+                // Create notification
+                const notification = document.createElement('div');
+                notification.className = `notification ${type}`;
+                notification.textContent = message;
+
+                document.body.appendChild(notification);
+
+                // Show notification
+                setTimeout(() => notification.classList.add('show'), 100);
+
+                // Hide notification after 4 seconds
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => notification.remove(), 300);
+                }, 4000);
+            }
+        }
+
+        // Initialize homepage when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            window.aiHomepage = new AITextHomepage();
         });
     </script>
 </body>

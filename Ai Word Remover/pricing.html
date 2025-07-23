@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans - AI Text Humanizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #6366f1;
+            --primary-purple: #8b5cf6;
+            --dark-bg: #0f0f23;
+            --card-bg: #1a1a2e;
+            --text-white: #ffffff;
+            --text-gray: #9ca3af;
+            --text-light: #e5e7eb;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --border-color: #2d2d4a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-white);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-white);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Hero Section */
+        .pricing-hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+        }
+
+        .pricing-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-white), var(--primary-blue));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pricing-hero p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Pricing Cards */
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--primary-blue);
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-white);
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price .currency {
+            font-size: 1.5rem;
+            vertical-align: top;
+        }
+
+        .plan-price .period {
+            font-size: 1rem;
+            color: var(--text-gray);
+            font-weight: 400;
+        }
+
+        .plan-description {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features li {
+            padding: 0.75rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .plan-features .check {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        .plan-features .cross {
+            color: var(--text-gray);
+        }
+
+        .plan-button {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .plan-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .plan-button.secondary {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-white);
+        }
+
+        .plan-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--primary-blue);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 4rem auto;
+            max-width: 1000px;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-white);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            text-align: left;
+            padding: 0;
+        }
+
+        .faq-answer {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .faq-answer.show {
+            display: block;
+        }
+
+        /* Guarantee Section */
+        .guarantee-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 20px;
+            margin: 4rem auto;
+            max-width: 800px;
+            border: 1px solid var(--accent-green);
+        }
+
+        .guarantee-icon {
+            font-size: 4rem;
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+        }
+
+        .guarantee-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-white);
+        }
+
+        .guarantee-text {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .pricing-hero h1 {
+                font-size: 2rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .pricing-card.popular {
+                transform: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <i class="fas fa-robot"></i>
+                AI Text Humanizer
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="pricing.html" class="active">Pricing</a></li>
+                <li><a href="#api">API</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <a href="signup.html" class="nav-cta">Get Started Free</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pricing-hero">
+        <h1>Simple, Transparent Pricing</h1>
+        <p>Choose the perfect plan for your AI text humanization needs. Start free and upgrade as you grow.</p>
+    </section>
+
+    <!-- Pricing Cards -->
+    <div class="pricing-container">
+        <div class="pricing-grid">
+            <!-- Free Plan -->
+            <div class="pricing-card">
+                <div class="plan-name">Free</div>
+                <div class="plan-price">
+                    <span class="currency">$</span>0
+                    <span class="period">/month</span>
+                </div>
+                <div class="plan-description">Perfect for trying out our AI humanization technology</div>
+                
+                <ul class="plan-features">
+                    <li><i class="fas fa-check check"></i> 200 words per day</li>
+                    <li><i class="fas fa-check check"></i> Basic AI detection</li>
+                    <li><i class="fas fa-check check"></i> Standard humanization</li>
+                    <li><i class="fas fa-check check"></i> Email support</li>
+                    <li><i class="fas fa-times cross"></i> Advanced AI patterns</li>
+                    <li><i class="fas fa-times cross"></i> SEO optimization</li>
+                    <li><i class="fas fa-times cross"></i> Bulk processing</li>
+                    <li><i class="fas fa-times cross"></i> API access</li>
+                </ul>
+                
+                <button class="plan-button secondary" onclick="selectPlan('free')">
+                    Get Started Free
+                </button>
+            </div>
+
+            <!-- Pro Plan -->
+            <div class="pricing-card popular">
+                <div class="popular-badge">Most Popular</div>
+                <div class="plan-name">Pro</div>
+                <div class="plan-price">
+                    <span class="currency">$</span>100
+                    <span class="period">/month</span>
+                </div>
+                <div class="plan-description">Best for professionals and content creators</div>
+                
+                <ul class="plan-features">
+                    <li><i class="fas fa-check check"></i> 10,000 words per day</li>
+                    <li><i class="fas fa-check check"></i> Advanced AI detection</li>
+                    <li><i class="fas fa-check check"></i> Premium humanization</li>
+                    <li><i class="fas fa-check check"></i> Priority support</li>
+                    <li><i class="fas fa-check check"></i> Advanced AI patterns</li>
+                    <li><i class="fas fa-check check"></i> SEO optimization</li>
+                    <li><i class="fas fa-check check"></i> Bulk processing</li>
+                    <li><i class="fas fa-check check"></i> Basic API access</li>
+                </ul>
+                
+                <button class="plan-button" onclick="selectPlan('pro')">
+                    Start Pro Plan
+                </button>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="pricing-card">
+                <div class="plan-name">Enterprise</div>
+                <div class="plan-price">
+                    <span class="currency">$</span>500
+                    <span class="period">/month</span>
+                </div>
+                <div class="plan-description">For large teams and organizations</div>
+                
+                <ul class="plan-features">
+                    <li><i class="fas fa-check check"></i> 100,000 words per day</li>
+                    <li><i class="fas fa-check check"></i> Advanced AI detection</li>
+                    <li><i class="fas fa-check check"></i> Premium humanization</li>
+                    <li><i class="fas fa-check check"></i> 24/7 dedicated support</li>
+                    <li><i class="fas fa-check check"></i> All AI patterns</li>
+                    <li><i class="fas fa-check check"></i> Advanced SEO tools</li>
+                    <li><i class="fas fa-check check"></i> Unlimited bulk processing</li>
+                    <li><i class="fas fa-check check"></i> Full API access</li>
+                </ul>
+                
+                <button class="plan-button" onclick="selectPlan('enterprise')">
+                    Contact Sales
+                </button>
+            </div>
+        </div>
+
+        <!-- Guarantee Section -->
+        <div class="guarantee-section">
+            <div class="guarantee-icon">
+                <i class="fas fa-shield-check"></i>
+            </div>
+            <div class="guarantee-title">30-Day Money-Back Guarantee</div>
+            <div class="guarantee-text">
+                Try our Pro or Enterprise plan risk-free for 30 days. If you're not completely satisfied with the results, we'll refund your money, no questions asked.
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    What happens when I exceed my word limit?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    When you reach your daily word limit, you'll need to wait until the next day or upgrade to a higher plan. Pro users get 10,000 words daily, while Enterprise users get 100,000 words.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    How does the AI detection work?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    Our AI detection uses advanced algorithms to identify patterns commonly found in AI-generated text. We test against 20+ detection tools including Turnitin, GPTZero, and Originality.ai to ensure maximum effectiveness.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Is there a free trial for paid plans?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    Yes! All paid plans come with a 7-day free trial. You can test all features without any commitment. Plus, we offer a 30-day money-back guarantee for complete peace of mind.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Can I change plans anytime?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    Absolutely! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any billing differences automatically.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Do you offer discounts for annual payments?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    Yes! Save 20% when you pay annually. The Pro plan becomes $960/year (normally $1,200) and Enterprise becomes $4,800/year (normally $6,000).
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Is my data secure?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    Yes, we take security seriously. All text is processed securely and never stored permanently. We're SOC 2 compliant and GDPR ready, ensuring your data remains private and protected.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleFaq(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-answer').forEach(ans => {
+                if (ans !== answer) {
+                    ans.classList.remove('show');
+                }
+            });
+            
+            document.querySelectorAll('.faq-question i').forEach(ic => {
+                if (ic !== icon) {
+                    ic.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current FAQ
+            answer.classList.toggle('show');
+            
+            if (answer.classList.contains('show')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function selectPlan(planType) {
+            // Store selected plan
+            localStorage.setItem('selectedPlan', planType);
+            
+            if (planType === 'free') {
+                // Redirect to signup with free plan
+                window.location.href = 'signup.html?plan=free';
+            } else if (planType === 'pro') {
+                // Redirect to signup with pro plan
+                window.location.href = 'signup.html?plan=pro';
+            } else if (planType === 'enterprise') {
+                // Redirect to contact form
+                alert('Enterprise plan selected! Our sales team will contact you within 24 hours.');
+                window.location.href = 'signup.html?plan=enterprise';
+            }
+        }
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

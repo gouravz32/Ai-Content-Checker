@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - AI Text Humanizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #6366f1;
+            --primary-purple: #8b5cf6;
+            --dark-bg: #0f0f23;
+            --card-bg: #1a1a2e;
+            --text-white: #ffffff;
+            --text-gray: #9ca3af;
+            --text-light: #e5e7eb;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --border-color: #2d2d4a;
+            --input-bg: #16213e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-white);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-white);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-white);
+        }
+
+        /* Main Content */
+        .signup-container {
+            display: flex;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .signup-left {
+            flex: 1;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .signup-info {
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .signup-info h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-white), var(--primary-blue));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .signup-info p {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .features-list .check {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        .testimonial {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        /* Signup Form */
+        .signup-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .signup-form-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 3rem;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-white);
+        }
+
+        .form-header p {
+            color: var(--text-gray);
+        }
+
+        /* Plan Selection */
+        .plan-selection {
+            margin-bottom: 2rem;
+        }
+
+        .plan-selection label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .plan-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .plan-option {
+            background: var(--input-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .plan-option:hover {
+            border-color: var(--primary-blue);
+        }
+
+        .plan-option.selected {
+            border-color: var(--primary-blue);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .plan-option input {
+            display: none;
+        }
+
+        .plan-name {
+            font-weight: 600;
+            color: var(--text-white);
+            margin-bottom: 0.25rem;
+        }
+
+        .plan-price {
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .plan-limit {
+            color: var(--text-gray);
+            font-size: 0.875rem;
+        }
+
+        /* Form Fields */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            color: var(--text-white);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-gray);
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-gray);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-checkbox input {
+            width: 18px;
+            height: 18px;
+        }
+
+        .form-checkbox label {
+            color: var(--text-gray);
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .form-checkbox a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .form-checkbox a:hover {
+            text-decoration: underline;
+        }
+
+        .signup-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .signup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .signup-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-divider {
+            text-align: center;
+            margin: 1.5rem 0;
+            color: var(--text-gray);
+            position: relative;
+        }
+
+        .form-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--border-color);
+            z-index: 1;
+        }
+
+        .form-divider span {
+            background: var(--card-bg);
+            padding: 0 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-btn {
+            flex: 1;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-white);
+            padding: 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--primary-blue);
+        }
+
+        .login-link {
+            text-align: center;
+            color: var(--text-gray);
+        }
+
+        .login-link a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+        }
+
+        .success-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-white);
+        }
+
+        .success-text {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .continue-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .continue-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .signup-container {
+                flex-direction: column;
+            }
+
+            .signup-left {
+                min-height: auto;
+                padding: 2rem 1rem;
+            }
+
+            .signup-info h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .plan-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .signup-form-container {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+
+            .social-login {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <i class="fas fa-robot"></i>
+                AI Text Humanizer
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="#api">API</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="signup-container">
+        <!-- Left Side -->
+        <div class="signup-left">
+            <div class="signup-info">
+                <h1>Join Thousands of Happy Users</h1>
+                <p>Transform your AI-generated content into human-like text that passes all detection tools.</p>
+                
+                <ul class="features-list">
+                    <li>
+                        <i class="fas fa-check check"></i>
+                        Bypass 20+ AI detection tools
+                    </li>
+                    <li>
+                        <i class="fas fa-check check"></i>
+                        Maintain original meaning & structure
+                    </li>
+                    <li>
+                        <i class="fas fa-check check"></i>
+                        Advanced SEO optimization
+                    </li>
+                    <li>
+                        <i class="fas fa-check check"></i>
+                        Lightning-fast processing
+                    </li>
+                    <li>
+                        <i class="fas fa-check check"></i>
+                        24/7 customer support
+                    </li>
+                </ul>
+
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "This tool saved my content strategy. The humanized text is indistinguishable from human writing!"
+                    </div>
+                    <div class="testimonial-author">
+                        - Sarah Chen, Content Marketing Manager
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="signup-right">
+            <div class="signup-form-container">
+                <!-- Signup Form -->
+                <div id="signupForm">
+                    <div class="form-header">
+                        <h2>Create Your Account</h2>
+                        <p>Start humanizing your AI content today</p>
+                    </div>
+
+                    <!-- Plan Selection -->
+                    <div class="plan-selection">
+                        <label>Choose Your Plan</label>
+                        <div class="plan-options">
+                            <div class="plan-option selected" data-plan="free">
+                                <input type="radio" name="plan" value="free" checked>
+                                <div class="plan-name">Free</div>
+                                <div class="plan-price">$0/month</div>
+                                <div class="plan-limit">200 words/day</div>
+                            </div>
+                            <div class="plan-option" data-plan="pro">
+                                <input type="radio" name="plan" value="pro">
+                                <div class="plan-name">Pro</div>
+                                <div class="plan-price">$100/month</div>
+                                <div class="plan-limit">10,000 words/day</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="signupFormElement">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" class="form-input" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-input" placeholder="Enter your email address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="password-wrapper">
+                                <input type="password" id="password" class="form-input" placeholder="Create a strong password" required>
+                                <button type="button" class="password-toggle" onclick="togglePassword()">
+                                    <i class="fas fa-eye" id="passwordIcon"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" class="form-input" placeholder="Confirm your password" required>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="terms" required>
+                            <label for="terms">
+                                I agree to the <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="signup-btn">
+                            Create Account
+                        </button>
+                    </form>
+
+                    <div class="form-divider">
+                        <span>or continue with</span>
+                    </div>
+
+                    <div class="social-login">
+                        <button class="social-btn" onclick="signupWithGoogle()">
+                            <i class="fab fa-google"></i>
+                            Google
+                        </button>
+                        <button class="social-btn" onclick="signupWithGithub()">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </button>
+                    </div>
+
+                    <div class="login-link">
+                        Already have an account? <a href="login.html">Sign in here</a>
+                    </div>
+                </div>
+
+                <!-- Success Message -->
+                <div id="successMessage" class="success-message">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="success-title">Account Created Successfully!</div>
+                    <div class="success-text">
+                        Welcome to AI Text Humanizer! Your account has been created and you can now start humanizing your content.
+                    </div>
+                    <a href="index.html" class="continue-btn">Start Humanizing</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Get plan from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedPlan = urlParams.get('plan');
+
+        if (selectedPlan) {
+            // Update plan selection based on URL parameter
+            document.querySelectorAll('.plan-option').forEach(option => {
+                option.classList.remove('selected');
+                const radio = option.querySelector('input');
+                radio.checked = false;
+            });
+
+            const targetOption = document.querySelector(`[data-plan="${selectedPlan}"]`);
+            if (targetOption) {
+                targetOption.classList.add('selected');
+                targetOption.querySelector('input').checked = true;
+            }
+        }
+
+        // Plan selection handling
+        document.querySelectorAll('.plan-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from all options
+                document.querySelectorAll('.plan-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                    opt.querySelector('input').checked = false;
+                });
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+                this.querySelector('input').checked = true;
+            });
+        });
+
+        // Password toggle functionality
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const passwordIcon = document.getElementById('passwordIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordIcon.className = 'fas fa-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                passwordIcon.className = 'fas fa-eye';
+            }
+        }
+
+        // Form submission
+        document.getElementById('signupFormElement').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                confirmPassword: document.getElementById('confirmPassword').value,
+                plan: document.querySelector('input[name="plan"]:checked').value,
+                terms: document.getElementById('terms').checked
+            };
+
+            // Validate form
+            if (!validateForm(formData)) {
+                return;
+            }
+
+            // Show loading state
+            const submitBtn = document.querySelector('.signup-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Creating Account...';
+
+            try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Store user data (in a real app, this would be sent to your backend)
+                const userData = {
+                    id: Date.now(),
+                    fullName: formData.fullName,
+                    email: formData.email,
+                    plan: formData.plan,
+                    wordsUsed: 0,
+                    wordsLimit: formData.plan === 'free' ? 200 : 10000,
+                    createdAt: new Date().toISOString(),
+                    isActive: true
+                };
+
+                // Store in localStorage (in a real app, use proper authentication)
+                localStorage.setItem('currentUser', JSON.stringify(userData));
+                
+                // Store user in users list for admin panel
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                users.push(userData);
+                localStorage.setItem('users', JSON.stringify(users));
+
+                // Show success message
+                document.getElementById('signupForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+
+                // Create welcome notification
+                showNotification('Welcome to AI Text Humanizer! Your account has been created successfully.', 'success');
+
+            } catch (error) {
+                console.error('Signup error:', error);
+                showNotification('Failed to create account. Please try again.', 'error');
+                
+                // Reset button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Create Account';
+            }
+        });
+
+        function validateForm(data) {
+            // Check if passwords match
+            if (data.password !== data.confirmPassword) {
+                showNotification('Passwords do not match', 'error');
+                return false;
+            }
+
+            // Check password strength
+            if (data.password.length < 8) {
+                showNotification('Password must be at least 8 characters long', 'error');
+                return false;
+            }
+
+            // Check if terms are accepted
+            if (!data.terms) {
+                showNotification('Please accept the Terms of Service and Privacy Policy', 'error');
+                return false;
+            }
+
+            // Check if email already exists (in a real app, this would be checked on the backend)
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            if (users.some(user => user.email === data.email)) {
+                showNotification('An account with this email already exists', 'error');
+                return false;
+            }
+
+            return true;
+        }
+
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: ${type === 'success' ? 'var(--accent-green)' : type === 'error' ? 'var(--accent-red)' : 'var(--primary-blue)'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                z-index: 10000;
+                max-width: 400px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                transform: translateX(400px);
+                transition: transform 0.3s ease;
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Remove after 5 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(400px)';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 5000);
+        }
+
+        function signupWithGoogle() {
+            showNotification('Google signup will be available soon!', 'info');
+        }
+
+        function signupWithGithub() {
+            showNotification('GitHub signup will be available soon!', 'info');
+        }
+
+        // Auto-focus first input
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('fullName').focus();
+        });
+    </script>
+
+    <!-- Google OAuth Script -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    
+    <script>
+        // Google OAuth configuration
+        function initializeGoogleSignIn() {
+            google.accounts.id.initialize({
+                client_id: "YOUR_GOOGLE_CLIENT_ID",
+                callback: handleGoogleSignUp
+            });
+        }
+
+        function handleGoogleSignUp(response) {
+            // Handle the Google ID token
+            console.log("Google ID Token:", response.credential);
+            
+            // You can decode the token and extract user information
+            const userInfo = parseJwt(response.credential);
+            console.log("User Info:", userInfo);
+            
+            // Create user account from Google data
+            const userData = {
+                fullName: userInfo.name,
+                email: userInfo.email,
+                signupMethod: 'google',
+                signupDate: new Date().toISOString()
+            };
+            
+            // Store user data
+            let users = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+            users.push(userData);
+            localStorage.setItem('registeredUsers', JSON.stringify(users));
+            
+            // Set login state
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('userEmail', userInfo.email);
+            localStorage.setItem('userName', userInfo.name);
+            
+            showNotification('Account created successfully with Google!', 'success');
+            
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500);
+        }
+
+        function parseJwt(token) {
+            const base64Url = token.split('.')[1];
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+
+            return JSON.parse(jsonPayload);
+        }
+
+        // Initialize Google Sign-In when page loads
+        window.onload = function() {
+            initializeGoogleSignIn();
+        };
+
+        function signupWithGoogle() {
+            google.accounts.id.prompt();
+        }
+
+        function signupWithGithub() {
+            showNotification('GitHub signup will be available soon!', 'info');
+        }
+
+        // Auto-focus first input
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('fullName').focus();
+        });
+    </script>
+</body>
+</html>
