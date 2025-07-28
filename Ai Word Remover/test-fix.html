@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test AI Detection Fix</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #1a1a1a; color: white; }
+        .container { max-width: 800px; margin: 0 auto; }
+        textarea { width: 100%; height: 200px; margin: 10px 0; padding: 10px; border-radius: 5px; }
+        button { padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; }
+        .detect-btn { background: #007bff; color: white; }
+        .detect-btn:disabled { background: #666; cursor: not-allowed; }
+        .results { margin-top: 20px; padding: 20px; background: #333; border-radius: 5px; }
+        .word-count { color: #ccc; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Test AI Detection Fix</h1>
+        <p>This page tests the "Check for AI" button functionality after our fixes.</p>
+        
+        <div class="word-count" id="wordCounter">0 words</div>
+        <textarea id="inputText" placeholder="Paste your article about tolls here to test..."></textarea>
+        
+        <button id="detectBtn" class="detect-btn" disabled>Check for AI</button>
+        <button id="humanizeBtn" style="display:none; background: #28a745; color: white;">Humanize</button>
+        
+        <div id="resultsContainer" style="display:none;" class="results"></div>
+        
+        <div style="margin-top: 20px;">
+            <h3>Sample Text (for testing):</h3>
+            <button id="sampleBtn" style="background: #6c757d; color: white;">Load Sample Article</button>
+        </div>
+    </div>
+
+    <script src="js/upass-style-app.js"></script>
+    <script>
+        // Initialize the app
+        const app = new UPassStyleApp();
+        
+        // Add some debugging
+        console.log('🧪 Test page loaded');
+        console.log('🔧 App instance:', app);
+        console.log('🎯 checkForAI method exists:', typeof app.checkForAI === 'function');
+        console.log('🎯 detectAI method exists:', typeof app.detectAI === 'function');
+        
+        // Test button click manually
+        document.getElementById('detectBtn').addEventListener('click', function() {
+            console.log('🖱️ Manual click detected - button clicked!');
+        });
+        
+        // Add sample text loader
+        document.getElementById('sampleBtn').addEventListener('click', function() {
+            const sampleText = `Electronic toll collection systems have revolutionized how drivers pay for road usage. These systems utilize advanced technology to automatically deduct toll fees from prepaid accounts. Furthermore, it is important to note that these systems significantly reduce traffic congestion at toll booths. Moreover, the implementation of these solutions has enhanced the overall efficiency of transportation networks. In conclusion, electronic tolling represents a comprehensive approach to modern infrastructure management.`;
+            document.getElementById('inputText').value = sampleText;
+            
+            // Trigger the update events
+            app.updateWordCount();
+            app.toggleButtons();
+        });
+    </script>
+</body>
+</html>

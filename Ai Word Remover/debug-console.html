@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔧 Debug AI Detection Fix</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); 
+            color: white; 
+            min-height: 100vh;
+        }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            background: rgba(0,0,0,0.3); 
+            padding: 30px; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .debug-section {
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid #007bff;
+        }
+        textarea { 
+            width: 100%; 
+            height: 150px; 
+            margin: 10px 0; 
+            padding: 15px; 
+            border-radius: 8px; 
+            border: 2px solid #444;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            font-family: 'Consolas', monospace;
+            font-size: 14px;
+        }
+        button { 
+            padding: 12px 24px; 
+            margin: 8px; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        .detect-btn { 
+            background: linear-gradient(135deg, #007bff, #0056b3); 
+            color: white; 
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+        .detect-btn:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+        }
+        .detect-btn:disabled { 
+            background: #666; 
+            cursor: not-allowed; 
+            transform: none;
+            box-shadow: none;
+        }
+        .sample-btn {
+            background: linear-gradient(135deg, #28a745, #1e7e34);
+            color: white;
+        }
+        .test-btn {
+            background: linear-gradient(135deg, #ffc107, #e0a800);
+            color: black;
+        }
+        .results { 
+            margin-top: 20px; 
+            padding: 20px; 
+            background: rgba(0,0,0,0.4); 
+            border-radius: 10px; 
+            border: 1px solid #444;
+        }
+        .word-count { 
+            color: #17a2b8; 
+            margin: 10px 0; 
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        .status.success { background: rgba(40, 167, 69, 0.2); color: #28a745; }
+        .status.error { background: rgba(220, 53, 69, 0.2); color: #dc3545; }
+        .status.info { background: rgba(23, 162, 184, 0.2); color: #17a2b8; }
+        .log {
+            background: #000;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Consolas', monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+            margin: 10px 0;
+        }
+        h1 { text-align: center; color: #007bff; }
+        h3 { color: #17a2b8; }
+        .highlight { background: yellow; color: black; padding: 2px 4px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 AI Detection Fix - Debug Console</h1>
+        <p style="text-align: center; color: #ccc;">Test the "Check for AI" button functionality after applying fixes</p>
+        
+        <div class="debug-section">
+            <h3>📝 Text Input</h3>
+            <div class="word-count" id="wordCounter">0 words</div>
+            <textarea id="inputText" placeholder="Paste your article about tolls here to test the AI detection..."></textarea>
+            
+            <div style="margin: 15px 0;">
+                <button id="detectBtn" class="detect-btn" disabled>🔍 Check for AI</button>
+                <button id="humanizeBtn" style="display:none; background: linear-gradient(135deg, #28a745, #1e7e34); color: white;">🤖➡️👤 Humanize</button>
+                <button id="sampleBtn" class="sample-btn">📄 Load Sample Text</button>
+                <button id="testBtn" class="test-btn">🧪 Run Debug Tests</button>
+            </div>
+        </div>
+
+        <div class="debug-section">
+            <h3>🧪 Debug Information</h3>
+            <div id="debugInfo"></div>
+            <div id="debugLog" class="log"></div>
+        </div>
+        
+        <div id="resultsContainer" style="display:none;" class="results">
+            <h3>📊 AI Detection Results</h3>
+            <div id="resultContent"></div>
+        </div>
+    </div>
+
+    <script src="js/upass-style-app.js"></script>
+    <script>
+        let app;
+        let debugLog = [];
+        
+        function addDebugLog(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            debugLog.push(`[${timestamp}] ${message}`);
+            updateDebugDisplay();
+            console.log(message);
+        }
+        
+        function updateDebugDisplay() {
+            const logElement = document.getElementById('debugLog');
+            logElement.innerHTML = debugLog.slice(-20).join('\n');
+            logElement.scrollTop = logElement.scrollHeight;
+        }
+        
+        function updateDebugInfo(info) {
+            document.getElementById('debugInfo').innerHTML = info;
+        }
+        
+        // Initialize the app
+        try {
+            addDebugLog('🚀 Initializing UPassStyleApp...');
+            app = new UPassStyleApp();
+            addDebugLog('✅ App instance created successfully');
+            
+            // Test methods existence
+            const methods = ['checkForAI', 'detectAI', 'showNotification', 'updateWordCount', 'toggleButtons'];
+            methods.forEach(method => {
+                if (typeof app[method] === 'function') {
+                    addDebugLog(`✅ Method ${method}() exists`);
+                } else {
+                    addDebugLog(`❌ Method ${method}() missing`);
+                }
+            });
+            
+        } catch (error) {
+            addDebugLog(`❌ Failed to initialize app: ${error.message}`);
+        }
+        
+        // Override console.log to capture debug messages
+        const originalConsoleLog = console.log;
+        console.log = function(...args) {
+            const message = args.join(' ');
+            if (message.includes('🔍') || message.includes('📝') || message.includes('✅') || message.includes('❌')) {
+                addDebugLog(message);
+            }
+            originalConsoleLog.apply(console, args);
+        };
+        
+        // Add test functions
+        document.getElementById('testBtn').addEventListener('click', function() {
+            addDebugLog('🧪 Running debug tests...');
+            
+            // Test 1: Check button element
+            const detectBtn = document.getElementById('detectBtn');
+            if (detectBtn) {
+                addDebugLog('✅ Detect button element found');
+                addDebugLog(`📊 Button disabled: ${detectBtn.disabled}`);
+            } else {
+                addDebugLog('❌ Detect button element not found');
+            }
+            
+            // Test 2: Check input element
+            const inputText = document.getElementById('inputText');
+            if (inputText) {
+                addDebugLog('✅ Input text element found');
+                const words = inputText.value.trim().split(/\s+/).length;
+                addDebugLog(`📊 Current word count: ${words}`);
+            } else {
+                addDebugLog('❌ Input text element not found');
+            }
+            
+            // Test 3: Check if currentText is set
+            if (app && app.currentText) {
+                addDebugLog(`📝 App currentText: "${app.currentText.substring(0, 50)}..."`);
+            } else {
+                addDebugLog('⚠️ App currentText not set');
+            }
+            
+            addDebugLog('🧪 Debug tests completed');
+        });
+        
+        // Add sample text loader
+        document.getElementById('sampleBtn').addEventListener('click', function() {
+            const sampleText = `Electronic toll collection systems have revolutionized how drivers pay for road usage. These systems utilize advanced technology to automatically deduct toll fees from prepaid accounts. Furthermore, it is important to note that these systems significantly reduce traffic congestion at toll booths. Moreover, the implementation of these solutions has enhanced the overall efficiency of transportation networks. The comprehensive approach to modern infrastructure management leverages cutting-edge technology. In conclusion, electronic tolling represents a paradigm shift in transportation payment systems.`;
+            
+            document.getElementById('inputText').value = sampleText;
+            addDebugLog('📄 Sample text loaded');
+            
+            // Trigger the update events
+            if (app) {
+                app.updateWordCount();
+                app.toggleButtons();
+                addDebugLog('🔄 Word count and buttons updated');
+            }
+        });
+        
+        // Override the checkForAI method to add debug logging
+        if (app && app.checkForAI) {
+            const originalCheckForAI = app.checkForAI.bind(app);
+            app.checkForAI = async function() {
+                addDebugLog('🔍 checkForAI() method called');
+                try {
+                    await originalCheckForAI();
+                    addDebugLog('✅ checkForAI() completed successfully');
+                } catch (error) {
+                    addDebugLog(`❌ checkForAI() failed: ${error.message}`);
+                }
+            };
+        }
+        
+        // Initial debug info
+        updateDebugInfo(`
+            <div class="status info">🔧 Debug Mode Active</div>
+            <div class="status ${app ? 'success' : 'error'}">
+                App Status: ${app ? 'Initialized ✅' : 'Failed ❌'}
+            </div>
+        `);
+        
+        addDebugLog('🔧 Debug console ready');
+    </script>
+</body>
+</html>
